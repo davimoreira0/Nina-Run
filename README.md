@@ -1,6 +1,8 @@
 # 🔓 Nina-Run - Professional Penetration Testing Tool
 
-![Nina-Run Logo](assets/logo.png)
+<div align="center">
+  <img src="assets/logo.png">
+</div>
 
 ![Version](https://img.shields.io/badge/version-2.26-blue)
 ![Language](https://img.shields.io/badge/language-Python%203-yellow)
