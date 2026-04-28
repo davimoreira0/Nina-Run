@@ -1,6 +1,8 @@
 # 🔓 Nina-Run - Professional Penetration Testing Tool
 
-![Version](https://img.shields.io/badge/version-1.26-blue)
+![Nina-Run Logo](assets/logo.png)
+
+![Version](https://img.shields.io/badge/version-2.26-blue)
 ![Language](https://img.shields.io/badge/language-Python%203-yellow)
 ![Status](https://img.shields.io/badge/status-Under%20Development-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -42,9 +44,9 @@
 - Consistent pattern: `set`, `show options`, `run` in each module
 
 ### 🎨 Visual Customization
-- Random ASCII arts loaded from `assets/ascii_arts` file
+- Single ASCII art loaded from `assets/ascii_arts` file
 - Complete colorization with `colorama` for better visibility
-- Professional banners on startup
+- Professional banner on startup
 - Visual icons and indicators for different message types
 
 ### 🛡️ Comprehensive Information Gathering
@@ -55,6 +57,18 @@
 - DNS resolution with Host
 - Route analysis with Traceroute
 - SSH brute force testing with Medusa
+- Packet crafting and flooding with hping3
+- Load balancer detection with lbd
+- Web application scanning with skipfish
+- SSL/TLS scanning with sslscan
+- SQL injection testing with sqlinjection
+- Subdomain enumeration with sublist3r
+- Email harvesting with theharvester
+- Web vulnerability scanning with nikto
+- Custom wordlist generation with cewl
+- SSH connection with ssh
+- Metadata extraction with metagoofil
+- Network host discovery with netdiscover
 
 ### 🔐 Error Handling
 - Robust user input validation
@@ -85,11 +99,30 @@ The script depends on command-line tools already installed on the system:
 | `host` | Host | DNS resolution |
 | `traceroute` | Traceroute | Network route analysis |
 | `medusa` | Medusa | SSH brute force testing |
+| `hping3` | hping3 | Packet crafting and flooding |
+| `lbd` | lbd | Load balancer detection |
+| `skipfish` | skipfish | Web application scanner |
+| `sslscan` | sslscan | SSL/TLS scanner |
+| `sqlinjection` | sqlinjection | SQL injection testing |
+| `sublist3r` | sublist3r | Subdomain enumeration |
+| `theharvester` | theharvester | Email harvesting |
+| `nikto` | nikto | Web vulnerability scanner |
+| `cewl` | cewl | Custom wordlist generator |
+| `ssh` | ssh | SSH connection |
+| `metagoofil` | metagoofil | Metadata extraction |
+| `netdiscover` | netdiscover | Network host discovery |
 
 ### Installing Dependencies on Linux (Debian/Ubuntu)
+You can install all required tools using the provided `install.sh` script:
+```bash
+chmod +x install.sh
+./install.sh
+```
+
+Or install manually:
 ```bash
 sudo apt-get update
-sudo apt-get install nmap dirb whois whatweb traceroute
+sudo apt-get install nmap dirb whois whatweb traceroute medusa hping3 lbd skipfish sslscan sqlinjection sublist3r theharvester nikto cewl metagoofil netdiscover
 ```
 
 ### Installing Medusa
@@ -119,20 +152,25 @@ cd nina-run
 ```
 
 ### 2. Install Python Dependencies
+Only one Python package is required:
 ```bash
-pip install -r requirements.txt
-# OR install manually
 pip install colorama
 ```
 
+**Note**: There is no `requirements.txt` file. All system tools are installed via `install.sh`.
+
 ### 3. Install System Tools
 ```bash
-# Linux (Debian/Ubuntu)
-sudo apt-get install nmap dirb whois whatweb traceroute medusa
+# Use the install.sh script (recommended)
+chmod +x install.sh
+./install.sh
 
-# macOS (with Homebrew)
-brew install nmap dirb whois whatweb traceroute
-# Medusa can be compiled from source
+# Or manually install on Linux (Debian/Ubuntu)
+sudo apt-get install nmap dirb whois whatweb traceroute medusa hping3 lbd skipfish sslscan sqlinjection sublist3r theharvester nikto cewl metagoofil netdiscover
+
+# macOS (with Homebrew) - Some tools may need manual compilation
+brew install nmap
+# Other tools may need to be compiled from source
 ```
 
 ### 4. Make Script Executable (Optional)
@@ -157,9 +195,9 @@ python setup.py
 ```bash
 $ python3 setup.py
 
-  Nina-Run Art (random)
+  Nina-Run ASCII Art
   
-Nina-Run, version: 1.26
+Nina-Run, version: 2.26
 GitHub: https://github.com/davimoreira0
 Use 'help' or '-h' for instructions
 
@@ -365,15 +403,187 @@ medusa -h <HOST> -u <USERNAME> -P <WORDLIST> -M ssh -v 6 -f
 
 ---
 
+### 8. **hping3** - Packet Crafting & Flooding
+**Description**: Advanced packet crafting tool for network testing and packet flooding attacks.
+
+**Parameters**:
+- `TARGET_IP` (required) - Target IP address
+- `SPOOF_IP` (required) - Spoofed source IP address
+- `COUNT` (required) - Number of packets to send (default: 10)
+- `PORT` (optional) - Target port (default: 80)
+
+**Executed Command**:
+```bash
+sudo hping3 -c <COUNT> -S <TARGET_IP> -a <SPOOF_IP> -p <PORT> --flood
+```
+
+---
+
+### 9. **lbd** - Load Balancer Detection
+**Description**: Detects load balancers on domain targets.
+
+**Parameters**:
+- `DOMAIN` (required) - Domain to check
+
+**Executed Command**:
+```bash
+lbd <DOMAIN>
+```
+
+---
+
+### 10. **skipfish** - Web Application Security Scanner
+**Description**: Active web application security reconnaissance tool.
+
+**Parameters**:
+- `TARGET_URL` (required) - URL to scan (e.g., http://example.com)
+- `OUTPUT_DIR` (optional) - Output directory (default: report)
+
+**Executed Command**:
+```bash
+skipfish -o <OUTPUT_DIR> <TARGET_URL>
+```
+
+---
+
+### 11. **sslscan** - SSL/TLS Scanner
+**Description**: Tests SSL/TLS enabled services to discover supported cipher suites.
+
+**Parameters**:
+- `TARGET_IP` (required) - Target IP address
+
+**Executed Command**:
+```bash
+sslscan <TARGET_IP>
+```
+
+---
+
+### 12. **sqlinjection** - SQL Injection Testing
+**Description**: Tool for testing SQL injection vulnerabilities.
+
+**Parameters**:
+- `TARGET_URL` (required) - URL to test
+
+**Executed Command**:
+```bash
+sqlinjection <TARGET_URL>
+```
+
+---
+
+### 13. **sublist3r** - Subdomain Enumeration
+**Description**: Fast subdomain enumeration tool using multiple search engines.
+
+**Parameters**:
+- `DOMAIN` (required) - Domain to enumerate
+- `ENGINE` (required) - Search engine (default: bing)
+
+**Executed Command**:
+```bash
+sublist3r -d <DOMAIN> -v -b -e <ENGINE>
+```
+
+---
+
+### 14. **theharvester** - Email Harvesting
+**Description**: E-mail harvesting and reconnaissance tool.
+
+**Parameters**:
+- `DOMAIN` (required) - Domain to search
+- `LIMIT` (optional) - Search limit (default: 100)
+- `ENGINE` (optional) - Search engine (default: bing)
+- `OUTPUT_FILE` (required) - Output file name
+
+**Executed Command**:
+```bash
+theHarvester -d <DOMAIN> -l <LIMIT> -b <ENGINE> -f <OUTPUT_FILE>
+```
+
+---
+
+### 15. **nikto** - Web Server Scanner
+**Description**: Web server scanner that tests for dangerous files/CGIs.
+
+**Parameters**:
+- `TARGET_URL` (required) - URL to scan
+- `OUTPUT_FILE` (optional) - Output file (default: output/nikto.html)
+
+**Executed Command**:
+```bash
+sudo nikto -host <TARGET_URL> -output <OUTPUT_FILE>
+```
+
+---
+
+### 16. **cewl** - Custom Wordlist Generator
+**Description**: Custom wordlist generator that spiders a URL to create wordlists.
+
+**Parameters**:
+- `TARGET_URL` (required) - URL to spider
+- `OUTPUT_FILE` (optional) - Output file (default: passwords.txt)
+
+**Executed Command**:
+```bash
+cewl <TARGET_URL> -w <OUTPUT_FILE>
+```
+
+---
+
+### 17. **ssh** - SSH Connection
+**Description**: SSH client for connecting to remote machines.
+
+**Parameters**:
+- `USERNAME` (required) - SSH username
+- `TARGET_IP` (required) - Target IP address
+- `USE_LEGACY` (optional) - Use legacy algorithms (default: false)
+
+**Executed Command**:
+```bash
+ssh <USERNAME>@<TARGET_IP>
+# or with legacy algorithms:
+ssh -oHostKeyAlgorithms=+ssh-rsa -oPubkeyAcceptedAlgorithms=+ssh-rsa <USERNAME>@<TARGET_IP>
+```
+
+---
+
+### 18. **metagoofil** - Metadata Extraction
+**Description**: Metadata extraction and document harvesting tool.
+
+**Parameters**:
+- `DOMAIN` (required) - Domain to search
+- `FILE_TYPE` (required) - File type (e.g., pdf, doc, xls)
+- `LIMIT` (required) - Maximum files to download (default: 10)
+- `OUTPUT_DIR` (optional) - Output directory (default: sitefile)
+
+**Executed Command**:
+```bash
+metagoofil -d <DOMAIN> -t <FILE_TYPE> -l <LIMIT> -o <OUTPUT_DIR>
+```
+
+---
+
+### 19. **netdiscover** - Network Host Discovery
+**Description**: Passive network host discovery tool. No parameters required - just run.
+
+**Parameters**: None required
+
+**Executed Command**:
+```bash
+sudo netdiscover -p
+```
+
+---
+
 ## 📁 Project Structure
 
 ```
 nina-run/
 ├── setup.py              # Main script (executable)
 ├── README.md             # This file (under development)
-├── requirements.txt      # Python dependencies (not included yet)
+├── install.sh            # Bash script to install all system tools
 ├── assets/
-│   └── ascii_arts        # ASCII arts for banner (randomly loaded)
+│   └── ascii_arts        # ASCII art for banner
 └── __pycache__/          # Python compiled cache (auto-generated)
 ```
 
@@ -382,7 +592,8 @@ nina-run/
 | File/Directory | Description |
 |----------------|-------------|
 | `setup.py` | Main file containing all application logic |
-| `assets/ascii_arts` | Text file with multiple ASCII arts separated by markers |
+| `install.sh` | Bash script to install all required system tools |
+| `assets/ascii_arts` | Text file with ASCII art for the banner |
 | `__pycache__/` | Cache directory created by Python automatically |
 
 ---
@@ -637,7 +848,7 @@ Nina-Run uses a **modular architecture based on classes**:
 | **Class Pattern** | Module encapsulation | `NmapModule` |
 | **Template Method** | Consistent interface | `set_param()`, `run_module()` |
 | **Strategy Pattern** | Different validations | Each specific setter |
-| **Factory Pattern** | Loading ASCII arts | `load_random_ascii_art()` |
+| **Factory Pattern** | Loading ASCII art | `load_ascii_art()` |
 
 ---
 
@@ -657,12 +868,12 @@ Nina-Run uses a **modular architecture based on classes**:
 ### Planned New Modules
 
 - [ ] **Metasploit integration** - Run exploits via Nina-Run
-- [ ] **SQL injection** - Automated SQLi testing
+- [x] **SQL injection** - Automated SQLi testing (v2.26)
 - [ ] **XSS scanning** - XSS vulnerability detection
 - [ ] **CMS exploitation** - WordPress, Joomla-specific exploitation
 - [ ] **Reverse shell generator** - Reverse shell generation
 - [ ] **Credential harvesting** - Credential extraction
-- [ ] **SSL/TLS analysis** - Certificate analysis
+- [x] **SSL/TLS analysis** - Certificate analysis (v2.26)
 - [ ] **API testing** - REST API security testing
 
 ### Interface Improvements
@@ -829,7 +1040,28 @@ copies or substantial portions of the Software.
 
 ## 🔄 Changelog
 
-### v1.26 (Current - Under Development)
+### v2.26 (Current - Under Development)
+- ✅ **12 New Modules Added**:
+  - hping3 - Packet crafting and flooding
+  - lbd - Load balancer detection
+  - skipfish - Web application scanner
+  - sslscan - SSL/TLS scanner
+  - sqlinjection - SQL injection testing
+  - sublist3r - Subdomain enumeration
+  - theharvester - Email harvesting
+  - nikto - Web vulnerability scanner
+  - cewl - Custom wordlist generator
+  - ssh - SSH connection tool
+  - metagoofil - Metadata extraction
+  - netdiscover - Network host discovery
+- ✅ Single ASCII art display (removed random selection)
+- ✅ Added `install.sh` script for easy tool installation
+- ✅ Removed `requirements.txt` (only colorama needed)
+- 🔄 README under development
+- 🔄 Unit tests pending
+- 🔄 Complete documentation pending
+
+### v1.26 (Previous)
 - ✅ Nmap module implemented
 - ✅ Dirb module implemented
 - ✅ Whois module implemented
@@ -840,8 +1072,6 @@ copies or substantial portions of the Software.
 - ✅ Dynamic module system
 - ✅ Random ASCII art
 - 🔄 README under development
-- 🔄 Unit tests pending
-- 🔄 Complete documentation pending
 
 ### v1.0 (Future)
 - [ ] Stable version with all modules
@@ -881,11 +1111,11 @@ copies or substantial portions of the Software.
 
 ## 📊 Statistics
 
-- **Lines of Code**: ~1000+ (in development)
-- **Implemented Modules**: 7
-- **Main Classes**: 7 (NmapModule, DirbModule, WhoisModule, WhatwebModule, HostModule, TracerouteModule, MedusaModule)
-- **Interface Functions**: 10+
-- **External Tools**: 6+ tools
+- **Lines of Code**: ~3000+ (in development)
+- **Implemented Modules**: 19
+- **Main Classes**: 19 (NmapModule, DirbModule, WhoisModule, WhatwebModule, HostModule, TracerouteModule, MedusaModule, Hping3Module, LbdModule, SkipfishModule, SslscanModule, SqlinjectionModule, Sublist3rModule, TheharvesterModule, NiktoModule, CewlModule, SshModule, MetagoofilModule, NetdiscoverModule)
+- **Interface Functions**: 20+
+- **External Tools**: 18+ tools
 - **Python Dependencies**: 1 (colorama)
 
 ---
@@ -940,7 +1170,7 @@ python3 setup.py
 **Solution**: `pip install colorama`
 
 **Problem**: "command not found: nmap"
-**Solution**: `sudo apt-get install nmap`
+**Solution**: Run `./install.sh` or install manually: `sudo apt-get install nmap`
 
 **Problem**: Script very slow
 **Solution**: Some scans take time. Be patient or use timeouts.
@@ -950,9 +1180,36 @@ python3 setup.py
 
 ---
 
-**README Version**: 1.0
-**Last Update**: 2026-04-20
+**README Version**: 2.0
+**Last Update**: 2026-04-28
 **Status**: Under Development ⚠️
+
+---
+
+## 📋 Version 2.26 Summary
+
+### Major Changes
+- **Added 12 new pentesting modules** bringing total to 19 modules
+- **Simplified installation** with new `install.sh` script
+- **Removed `requirements.txt`** - only requires `colorama` (pip install)
+- **Simplified ASCII art loading** - single art instead of random selection
+
+### New Modules (v2.26)
+1. **hping3** - Packet crafting and flooding attacks
+2. **lbd** - Load balancer detection
+3. **skipfish** - Web application security scanner
+4. **sslscan** - SSL/TLS cipher suite testing
+5. **sqlinjection** - SQL injection vulnerability testing
+6. **sublist3r** - Subdomain enumeration via search engines
+7. **theharvester** - Email harvesting and reconnaissance
+8. **nikto** - Web server vulnerability scanner
+9. **cewl** - Custom wordlist generator from websites
+10. **ssh** - SSH connection with legacy algorithm support
+11. **metagoofil** - Metadata extraction and document harvesting
+12. **netdiscover** - Passive network host discovery
+
+### Project Status
+⚠️ **This project is still under active development.** New features and modules are being added continuously. Some features may change or be improved in future versions.
 
 ---
 
