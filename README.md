@@ -469,7 +469,7 @@ sslscan <TARGET_IP>
 
 **Executed Command**:
 ```bash
-sqlinjection <TARGET_URL>
+sqlmap <TARGET_URL> --batch
 ```
 
 ---
