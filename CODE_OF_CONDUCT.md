@@ -108,7 +108,7 @@ Community Impact Guidelines were inspired by [Mozilla's code of conduct enforcem
 ## Questions?
 
 If you have questions about this Code of Conduct, please contact:
-- Email: moreiradavi3377@gmail.com
+- Email: moreiradavi336@gmail.com
 - GitHub: [@davimoreira0](https://github.com/davimoreira0)
 
 ---
