@@ -50,7 +50,7 @@ This Code of Conduct applies within all project spaces, including:
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainers at:
 
-**Email**: moreiradavi3377@gmail.com
+**Email**: moreiradavi336@gmail.com
 
 All complaints will be reviewed and investigated promptly and fairly.
 
