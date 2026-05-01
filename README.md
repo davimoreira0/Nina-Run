@@ -168,7 +168,7 @@ chmod +x install.sh
 ./install.sh
 
 # Or manually install on Linux (Debian/Ubuntu)
-sudo apt-get install nmap dirb whois whatweb traceroute medusa hping3 lbd skipfish sslscan sqlinjection sublist3r theharvester nikto cewl metagoofil netdiscover
+sudo apt-get install nmap dirb whois whatweb traceroute medusa hping3 lbd skipfish sslscan sublist3r theharvester nikto cewl metagoofil netdiscover
 
 # macOS (with Homebrew) - Some tools may need manual compilation
 brew install nmap
