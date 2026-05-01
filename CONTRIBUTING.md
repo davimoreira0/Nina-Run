@@ -281,7 +281,7 @@ Before submitting:
 - **General questions**: Open a [Discussion](https://github.com/davimoreira0/nina-run/discussions)
 - **Bug reports**: Open an [Issue](https://github.com/davimoreira0/nina-run/issues)
 - **Security issues**: See [SECURITY.md](SECURITY.md)
-- **Email**: moreiradavi3377@gmail.com
+- **Email**: moreiradavi336@gmail.com
 
 ## Recognition
 
