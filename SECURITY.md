@@ -89,7 +89,7 @@ Nina-Run relies on external security tools. Ensure these are:
 ## Contact
 
 For security-related inquiries:
-- Email: moreiradavi3377@gmail.com
+- Email: moreiradavi336@gmail.com
 - GitHub: [@davimoreira0](https://github.com/davimoreira0)
 
 ---
