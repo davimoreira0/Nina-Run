@@ -16,7 +16,7 @@ We take the security of Nina-Run seriously. If you discover a security vulnerabi
 ### Responsible Disclosure Process
 
 1. **Do NOT** open a public issue on GitHub for security vulnerabilities
-2. **Email** the security team directly at: moreiradavi3377@gmail.com
+2. **Email** the security team directly at: moreiradavi336@gmail.com
 3. Include the following information:
    - Description of the vulnerability
    - Steps to reproduce the issue
