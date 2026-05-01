@@ -990,7 +990,7 @@ Nina-Run authors are not responsible for:
 **Davi Moreira**
 
 - GitHub: [@davimoreira0](https://github.com/davimoreira0)
-- Email: moreiradavi3377@gmail.com
+- Email: moreiradavi336@gmail.com
 
 ### Credits
 
