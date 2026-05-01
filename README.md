@@ -124,7 +124,7 @@ chmod +x install.sh
 Or install manually:
 ```bash
 sudo apt-get update
-sudo apt-get install nmap dirb whois whatweb traceroute medusa hping3 lbd skipfish sslscan sqlinjection sublist3r theharvester nikto cewl metagoofil netdiscover
+sudo apt-get install nmap dirb whois whatweb traceroute medusa hping3 lbd skipfish sslscan sublist3r theharvester nikto cewl metagoofil netdiscover
 ```
 
 ### Installing Medusa
