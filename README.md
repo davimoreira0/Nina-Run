@@ -164,5 +164,5 @@ Nina-Run authors are not responsible for:
 Thank you for using **Nina-Run**! For questions, suggestions or bugs, contact via GitHub Issues.
 
 Happy Hacking! 🔓🛡️
-![Views](https://raw.githubusercontent.com/davimoreira0/Nina-Run/repository-stats/generated/views.svg)
-![Clones](https://raw.githubusercontent.com/davimoreira0/Nina-Run/repository-stats/generated/clones.svg)
+![Views](https://github.com/davimoreira0/Nina-Run/blob/gh-stats/views-report-last-14-days-badge.svg) |
+![Clones](https://github.com/davimoreira0/Nina-Run/blob/gh-stats/clones-report-last-14-days-badge.svg) |
