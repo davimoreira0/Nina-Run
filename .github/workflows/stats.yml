@@ -1,0 +1,22 @@
+name: GitHub Repo Stats
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Generate Repository Stats
+        uses: target/repository-stats-action@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: davimoreira0/Nina-Run
+          branch: repository-stats
