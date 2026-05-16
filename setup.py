@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Nina-Run - Profissional pentest tool
-Versão: 2.26
+Nina-Run - Professional Pentest Tool
+Version: 2.26
 GitHub: https://github.com/davimoreira0
 """
 
