@@ -32,7 +32,7 @@ Get up and running in 5 minutes:
 
 ```bash
 # Clone the repository
-git clone https://github.com/davimoreira0/nina-run.git
+git clone https://github.com/davimoreira0/Nina-Run.git
 cd nina-run
 
 # Create and activate virtual environment
